@@ -8,6 +8,8 @@
   <groupId>com.attivio.archetypes</groupId>
   <artifactId>attivio-archetype-module</artifactId>
   <packaging>maven-archetype</packaging>
+  <name>platform/attivio-archetype-module</name>
+  <description>Attivio eModule Maven Archetype</description>
   <properties>
     <sample.sources.unpack.dir>${project.build.directory}/sources</sample.sources.unpack.dir>
     <sample.sources.resource.dir>${project.build.directory}/classes/archetype-resources/src</sample.sources.resource.dir>

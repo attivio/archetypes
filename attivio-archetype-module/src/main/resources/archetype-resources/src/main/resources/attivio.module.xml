@@ -1,0 +1,9 @@
+<attivio> 
+  <module name="module-${artifactId}" version="-1"> 
+    <description>A description of my module</description>
+    <init class="${groupId}.${artifactId}.ModuleInit"/>  
+    <components>
+      <component class="${groupId}.${artifactId}.SampleFieldValueCreatingTransformer"/>
+    </components>
+  </module> 
+</attivio>

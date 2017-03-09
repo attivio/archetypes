@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <version>${version}</version>
+
+  <!-- This provides access to the hosted Attivio SDK jars -->
+  <repositories>
+    <repository>
+      <id>Attivio SDK Repository</id>
+      <url>https://git.attivio.com/raw/attivio/sdk/develop</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+  
+  <properties>
+    <attivio.version>5.2.7-SNAPSHOT</attivio.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>com.attivio.platform.sdk</groupId>
+      <artifactId>server</artifactId>
+      <version>${attivio.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.attivio.platform.sdk</groupId>
+      <artifactId>model</artifactId>
+      <version>${attivio.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.attivio.platform.sdk</groupId>
+      <artifactId>client</artifactId>
+      <version>${attivio.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.attivio.platform.sdk</groupId>
+      <artifactId>testutils</artifactId>
+      <scope>test</scope>
+      <version>${attivio.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.24</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+      <version>4.12</version>
+    </dependency>
+
+    INCLUDE-WEB-MARKER
+  </dependencies>
+</project>

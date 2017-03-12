@@ -7,6 +7,18 @@
   <packaging>pom</packaging>
   <description>Parent POM for Attivio SDK Maven Archetypes</description>
   <url>https://git.attivio.com/attivio/sdk</url>
+
+  <repositories>
+    <repository>
+      <id>Attivio SDK Repository</id>
+      <url>https://raw.githubusercontent.com/attivio/sdk/develop</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>

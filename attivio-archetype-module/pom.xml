@@ -5,10 +5,10 @@
     <artifactId>archetypes</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.attivio.archetypes</groupId>
+  <groupId>com.attivio.platform.archetypes</groupId>
   <artifactId>attivio-archetype-module</artifactId>
   <packaging>maven-archetype</packaging>
-  <name>platform/attivio-archetype-module</name>
+  <name>platform/archetypes/attivio-archetype-module</name>
   <description>Attivio eModule Maven Archetype</description>
   <properties>
     <sample.sources.unpack.dir>${project.build.directory}/sources</sample.sources.unpack.dir>

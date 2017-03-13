@@ -6,7 +6,7 @@
   <name>platform/archetypes</name>
   <packaging>pom</packaging>
   <description>Parent POM for Attivio SDK Maven Archetypes</description>
-  <url>https://git.attivio.com/attivio/sdk</url>
+  <url>https://github.com/attivio/archetypes</url>
 
   <repositories>
     <repository>

@@ -42,9 +42,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <attivio.version>5.2.7-SNAPSHOT</attivio.version>
   </properties>
+
   <modules>
     <module>attivio-archetype-module</module>
+    <module>attivio-archetype-client</module>
   </modules>
+
   <dependencyManagement>
     <dependencies>
       <dependency>

@@ -6,14 +6,16 @@
     <version>0.1.0-SNAPSHOT</version>
   </parent>
   <groupId>com.attivio.platform.archetypes</groupId>
-  <artifactId>attivio-archetype-module</artifactId>
+  <artifactId>attivio-archetype-client</artifactId>
   <packaging>maven-archetype</packaging>
-  <name>platform/archetypes/attivio-archetype-module</name>
-  <description>Attivio eModule Maven Archetype</description>
+  <name>platform/archetypes/attivio-archetype-client</name>
+  <description>Attivio Client Maven Archetype</description>
+  
   <properties>
     <sample.sources.unpack.dir>${project.build.directory}/sources</sample.sources.unpack.dir>
     <sample.sources.resource.dir>${project.build.directory}/classes/archetype-resources/src</sample.sources.resource.dir>
   </properties>
+  
   <build>
     <plugins>
       <plugin>
@@ -41,7 +43,7 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <includes>main/java/com/sample/module/*.java</includes>
+                  <includes>main/java/com/sample/client/*.java</includes>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -55,7 +57,7 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <includes>test/java/com/sample/module/*.java</includes>
+                  <includes>test/java/com/sample/client/*.java</includes>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -76,7 +78,7 @@
               <overwrite>true</overwrite>
               <resources>
                 <resource>
-                  <directory>${sample.sources.unpack.dir}/main/java/com/sample/module</directory>
+                  <directory>${sample.sources.unpack.dir}/main/java/com/sample/client</directory>
                   <includes>
                     <include>*.java</include>
                   </includes>
@@ -95,7 +97,7 @@
               <overwrite>true</overwrite>
               <resources>
                 <resource>
-                  <directory>${sample.sources.unpack.dir}/test/java/com/sample/module</directory>
+                  <directory>${sample.sources.unpack.dir}/test/java/com/sample/client</directory>
                   <includes>
                     <include>*.java</include>
                   </includes>

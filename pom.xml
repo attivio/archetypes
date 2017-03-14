@@ -47,9 +47,12 @@
     <attivio.version>5.2.7-SNAPSHOT</attivio.version>
     <gpg.keyname>8F7F7174</gpg.keyname>
   </properties>
+
   <modules>
     <module>attivio-archetype-module</module>
+    <module>attivio-archetype-client</module>
   </modules>
+
   <dependencyManagement>
     <dependencies>
       <dependency>

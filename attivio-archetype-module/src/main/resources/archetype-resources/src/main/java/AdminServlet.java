@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.velocity.VelocityContext;
 
 import com.attivio.app.adminui.AbstractAdminViewServlet;
-import com.attivio.sdk.error.ConfigurationError;
+import com.attivio.model.error.ConfigurationError;
 
 /**
  * Servlet that displays information from the ${artifactId} module.

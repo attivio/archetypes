@@ -5,8 +5,9 @@ def env = System.getenv()
 def attivioHome = env['ATTIVIO_HOME']
 if (attivioHome == null) {
     env['PATH'].split(System.getProperty("path.separator")).each { p ->
-	if (new File(p+"/../conf/attivio.license").exists()) {
+	if (new File(p+"/../conf/attivio.license").exists() && attivioHome == null) {
 	    attivioHome = new File(p).getParent();
+	    println "Detected Attivio installation from path: $attivioHome"
 	}
     }
 }
@@ -18,37 +19,10 @@ if (attivioHome != null) {
     println "Attivio installed at: ${attivioHome}"
 }
 
-// handle inclusion of hadoop dependencies
-def hadoopMarker = 'HADOOP-MARKER'
 def pomFile = new File(moduleDir, 'pom.xml')
 println "Updating "+pomFile
 
 def pomContent = pomFile.getText('UTF-8')
-def hadoopDependencies = """
-    <!-- Hadoop runtime dependencies -->
-    <dependency>
-      <groupId>org.apache.hbase</groupId>
-      <artifactId>hbase-client</artifactId>
-      <version>1.1.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-hdfs</artifactId>
-      <version>2.7.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-common</artifactId>
-      <version>2.7.2</version>
-    </dependency>
-"""
-if (hadoop.equalsIgnoreCase("yes") || hadoop.equalsIgnoreCase("y")) {
-    // replace marker with dependencies
-    pomContent = pomContent.replace(hadoopMarker, hadoopDependencies)
-} else {
-    // remove marker from pom
-    pomContent = pomContent.replace(hadoopMarker, '')
-}
 
 // update home directory
 pomContent = pomContent.replace('ATTIVIO-HOME', attivioHome);

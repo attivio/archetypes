@@ -7,7 +7,7 @@ def webappsDir = new File(moduleDir, "src/main/resources/webapps/${artifactId}")
 // replace com.sample with the group and artifact ids
 moduleDir.eachDirRecurse() { dir ->
     dir.eachFileMatch(~/.*.java/) { file ->
-	String code = file.getText('UTF-8').replaceAll('com.sample', request.getGroupId()+'.'+request.getArtifactId())
+	String code = file.getText('UTF-8').replaceAll('com.sample.module', request.getGroupId()+'.'+request.getArtifactId())
 	file.newWriter().withWriter { w ->
 	    w << code
 	}
@@ -20,10 +20,13 @@ def includeWeb = request.getProperties().getProperty('includeWeb')
 // Find Attivio installation
 def env = System.getenv()
 def attivioHome = env['ATTIVIO_HOME']
+def attivioVersion
+
 if (attivioHome == null) {
     env['PATH'].split(System.getProperty("path.separator")).each { p ->
-	if (new File(p+"/../conf/attivio.license").exists()) {
+	if (new File(p+"/../conf/attivio.license").exists() && attivioHome == null) {
 	    attivioHome = new File(p).getParent();
+	    println "Detected Attivio installation from path: $attivioHome"
 	}
     }
 }
@@ -31,9 +34,7 @@ if (includeWeb && attivioHome == null) {
     println "Web inclusion requires Attivio installation and Attivio was not found on path"
     attivioHome = System.console().readLine 'Attivio Installation Directory?: '
 }
-if (attivioHome != null) {
-    println "Attivio installed at: ${attivioHome}"
-}
+
 
 // handle inclusion of web servlet
 def includeWebMarker = 'INCLUDE-WEB-MARKER'
@@ -49,6 +50,13 @@ def webDependencies = """
       <version>\044{attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivioHome}/lib/aie-core-app.jar</systemPath>
+    </dependency>  
+    <dependency>
+      <groupId>com.attivio.platform</groupId>
+      <artifactId>util</artifactId>
+      <version>\044{attivio.version}</version>
+      <scope>system</scope>
+      <systemPath>${attivioHome}/lib/aie-platform-util.jar</systemPath>
     </dependency>  
     <dependency>
         <groupId>javax.servlet</groupId>

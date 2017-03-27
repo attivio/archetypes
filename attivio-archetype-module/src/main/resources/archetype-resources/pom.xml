@@ -9,7 +9,7 @@
   <repositories>
     <repository>
       <id>Attivio SDK Repository</id>
-      <url>https://raw.githubusercontent.com/attivio/sdk/develop</url>
+      <url>https://raw.githubusercontent.com/attivio/sdk/4.4</url>
       <snapshots>
         <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
@@ -18,9 +18,9 @@
   </repositories>
   
   <properties>
-    <attivio.version>5.2.7-SNAPSHOT</attivio.version>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <attivio.version>4.4.0</attivio.version>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   

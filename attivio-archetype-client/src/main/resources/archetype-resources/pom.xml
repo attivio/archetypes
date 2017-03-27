@@ -9,7 +9,7 @@
   <repositories>
     <repository>
       <id>Attivio SDK Repository</id>
-      <url>https://raw.githubusercontent.com/attivio/sdk/develop</url>
+      <url>https://raw.githubusercontent.com/attivio/sdk/4.4</url>
       <snapshots>
         <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
@@ -18,10 +18,10 @@
   </repositories>
   
   <properties>
-    <attivio.version>5.2.7-SNAPSHOT</attivio.version>
+    <attivio.version>4.4.0</attivio.version>
     <attivio.home>ATTIVIO-HOME</attivio.home>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
@@ -53,6 +53,11 @@
       <version>1.7.24</version>
     </dependency>
     <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
@@ -66,81 +71,27 @@
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-core-model.jar</systemPath>
-    </dependency>  
-    <dependency>
-      <groupId>com.attivio.platform.platform</groupId>
-      <artifactId>store</artifactId>
-      <version>${attivio.version}</version>
-      <scope>system</scope>
-      <systemPath>${attivio.home}/lib/aie-platform-store.jar</systemPath>
-    </dependency>  
-    <dependency>
-      <groupId>com.attivio.platform.platform.perfmon</groupId>
-      <artifactId>client</artifactId>
-      <version>${attivio.version}</version>
-      <scope>system</scope>
-      <systemPath>${attivio.home}/lib/aie-platform-perfmon-client.jar</systemPath>
-    </dependency>  
-    <dependency>
-      <groupId>com.attivio.platform.platform</groupId>
-      <artifactId>springutil</artifactId>
-      <version>${attivio.version}</version>
-      <scope>system</scope>
-      <systemPath>${attivio.home}/lib/aie-platform-springutil.jar</systemPath>
-    </dependency>  
-    <dependency>
-      <groupId>com.attivio.platform.platform.esb</groupId>
-      <artifactId>zoo</artifactId>
-      <version>${attivio.version}</version>
-      <scope>system</scope>
-      <systemPath>${attivio.home}/lib/aie-platform-esb-zoo.jar</systemPath>
-    </dependency>  
-    <dependency>
-      <groupId>com.attivio.platform.platform</groupId>
-      <artifactId>util</artifactId>
-      <version>${attivio.version}</version>
-      <scope>system</scope>
-      <systemPath>${attivio.home}/lib/aie-platform-util.jar</systemPath>
-    </dependency>  
-    <dependency>
-      <groupId>com.attivio.3rdparty.partial</groupId>
-      <artifactId>curator-x-discovery-2.9.1-aie</artifactId>
-      <version>${attivio.version}</version>
-      <scope>system</scope>
-      <systemPath>${attivio.home}/lib/curator-x-discovery-2.9.1-aie-5.2.7.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.attivio.3rdparty.partial</groupId>
       <artifactId>xstream-1.4.2-aie</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
-      <systemPath>${attivio.home}/lib/xstream-1.4.2-aie-5.2.7.jar</systemPath>
+      <systemPath>${attivio.home}/lib/xstream-1.4.2-aie-4.4.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.attivio.3rdparty.partial</groupId>
+      <artifactId>dom4j-1.6.1-aie</artifactId>
+      <version>${attivio.version}</version>
+      <scope>system</scope>
+      <systemPath>${attivio.home}/lib/dom4j-1.6.1-aie-4.4.0.jar</systemPath>
     </dependency>
 
     <!-- These are non-Attivio runtime dependencies -->
     <dependency>
-      <groupId>org.apache.zookeeper</groupId>
-      <artifactId>zookeeper</artifactId>
-      <version>3.4.5</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.curator</groupId>
-      <artifactId>curator-framework</artifactId>
-      <version>2.9.1</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.curator</groupId>
-      <artifactId>curator-recipes</artifactId>
-      <version>2.9.1</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.6.5</version>
-      <scope>runtime</scope>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.1</version>
     </dependency>
     <dependency>
       <groupId>commons-io</groupId>
@@ -149,9 +100,9 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>4.5.1</version>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -160,53 +111,6 @@
       <version>1.1.4c</version>
       <scope>runtime</scope>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>4.2.5.RELEASE</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>4.2.5.RELEASE</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.4</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-pool2</artifactId>
-      <version>2.4.2</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-beanutils</groupId>
-      <artifactId>commons-beanutils-core</artifactId>
-      <version>1.8.3</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.hsqldb</groupId>
-      <artifactId>hsqldb</artifactId>
-      <version>2.3.3</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>it.unimi.dsi</groupId>
-      <artifactId>fastutil</artifactId>
-      <version>7.0.7</version>
-    </dependency>
     
-    HADOOP-MARKER
   </dependencies>
 </project>

@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.attivio.platform</groupId>
     <artifactId>archetypes</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.5.1-SNAPSHOT</version>
   </parent>
   <groupId>com.attivio.platform.archetypes</groupId>
   <artifactId>attivio-archetype-module</artifactId>
@@ -24,7 +24,7 @@
             <artifactItem>
               <groupId>com.attivio.platform.sdk</groupId>
               <artifactId>testutils</artifactId>
-              <version>5.2.7-SNAPSHOT</version>
+              <version>5.2.6</version>
               <classifier>sources</classifier>
               <overWrite>false</overWrite>
               <outputDirectory>${sample.sources.unpack.dir}</outputDirectory>

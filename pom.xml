@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.attivio.platform</groupId>
   <artifactId>archetypes</artifactId>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>0.5.1-SNAPSHOT</version>
   <name>platform/archetypes</name>
   <packaging>pom</packaging>
   <description>Parent POM for Attivio SDK Maven Archetypes</description>
@@ -21,7 +21,7 @@
   <repositories>
     <repository>
       <id>Attivio SDK Repository</id>
-      <url>https://raw.githubusercontent.com/attivio/sdk/develop</url>
+      <url>https://raw.githubusercontent.com/attivio/sdk/5.2</url>
       <snapshots>
         <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
@@ -50,7 +50,7 @@
   </scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <attivio.version>5.2.7-SNAPSHOT</attivio.version>
+    <attivio.version>5.2.6</attivio.version>
     <gpg.keyname>8F7F7174</gpg.keyname>
   </properties>
   <modules>

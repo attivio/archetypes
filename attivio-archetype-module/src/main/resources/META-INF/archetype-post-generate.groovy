@@ -7,7 +7,7 @@ def webappsDir = new File(moduleDir, "src/main/resources/webapps/${artifactId}")
 // replace com.sample with the group and artifact ids
 moduleDir.eachDirRecurse() { dir ->
     dir.eachFileMatch(~/.*.java/) { file ->
-        String code = file.getText('UTF-8').replaceAll('com.sample', request.getGroupId()+'.'+request.getArtifactId())
+        String code = file.getText('UTF-8').replaceAll('com.sample.module', request.getGroupId()+'.'+request.getArtifactId())
         file.newWriter().withWriter { w ->
             w << code
         }
@@ -28,6 +28,13 @@ if (attivioHome == null) {
             }
         }
     }
+}
+if (includeWeb && attivioHome == null) {
+    println "Web inclusion requires Attivio installation and Attivio was not found on path"
+    attivioHome = System.console().readLine 'Attivio Installation Directory?: '
+}
+if (attivioHome != null) {
+    println "Attivio installed at: ${attivioHome}"
 }
 
 // handle inclusion of web servlet

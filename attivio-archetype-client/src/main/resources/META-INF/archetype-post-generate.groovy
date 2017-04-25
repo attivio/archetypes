@@ -1,13 +1,15 @@
 def moduleDir = new File(request.getOutputDirectory()+"/"+request.getArtifactId())
 
 // Find Attivio installation
-def env = System.getenv()
-def attivioHome = env['ATTIVIO_HOME']
+def attivioHome = System.getenv('ATTIVIO_HOME')
 if (attivioHome == null) {
-    env['PATH'].split(System.getProperty("path.separator")).each { p ->
-	if (new File(p+"/../conf/attivio.license").exists()) {
-	    attivioHome = new File(p).getParent();
-	}
+    systemPath = System.getenv('PATH')
+    if (systemPath != null) {
+        systemPath.split(System.getProperty("path.separator")).each { p ->
+            if (new File(p+"/../conf/attivio.license").exists()) {
+                attivioHome = new File(p).getParent();
+            }
+        }
     }
 }
 if (attivioHome == null) {

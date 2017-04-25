@@ -7,7 +7,7 @@ def webappsDir = new File(moduleDir, "src/main/resources/webapps/${artifactId}")
 // replace com.sample with the group and artifact ids
 moduleDir.eachDirRecurse() { dir ->
     dir.eachFileMatch(~/.*.java/) { file ->
-        String code = file.getText('UTF-8').replaceAll('com.sample', request.getGroupId()+'.'+request.getArtifactId())
+        String code = file.getText('UTF-8').replaceAll('com.sample.module', request.getGroupId()+'.'+request.getArtifactId())
         file.newWriter().withWriter { w ->
             w << code
         }

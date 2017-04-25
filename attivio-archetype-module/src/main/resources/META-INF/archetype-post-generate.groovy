@@ -18,16 +18,15 @@ moduleDir.eachDirRecurse() { dir ->
 def includeWeb = request.getProperties().getProperty('includeWeb')
 
 // Find Attivio installation
-def env = System.getenv()
-def attivioHome = env['ATTIVIO_HOME']
-def attivioVersion
-
+def attivioHome = System.getenv('ATTIVIO_HOME')
 if (attivioHome == null) {
-    env['PATH'].split(System.getProperty("path.separator")).each { p ->
-	if (new File(p+"/../conf/attivio.license").exists() && attivioHome == null) {
-	    attivioHome = new File(p).getParent();
-	    println "Detected Attivio installation from path: $attivioHome"
-	}
+    systemPath = System.getenv('PATH')
+    if (systemPath != null) {
+        systemPath.split(System.getProperty("path.separator")).each { p ->
+            if (new File(p+"/../conf/attivio.license").exists()) {
+                attivioHome = new File(p).getParent();
+            }
+        }
     }
 }
 if (includeWeb && attivioHome == null) {
@@ -50,14 +49,14 @@ def webDependencies = """
       <version>\044{attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivioHome}/lib/aie-core-app.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>com.attivio.platform</groupId>
       <artifactId>util</artifactId>
       <version>\044{attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivioHome}/lib/aie-platform-util.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>

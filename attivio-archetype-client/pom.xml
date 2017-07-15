@@ -10,12 +10,12 @@
   <packaging>maven-archetype</packaging>
   <name>platform/archetypes/attivio-archetype-client</name>
   <description>Attivio Client Maven Archetype</description>
-  
+
   <properties>
     <sample.sources.unpack.dir>${project.build.directory}/sources</sample.sources.unpack.dir>
     <sample.sources.resource.dir>${project.build.directory}/classes/archetype-resources/src</sample.sources.resource.dir>
   </properties>
-  
+
   <build>
     <plugins>
       <plugin>

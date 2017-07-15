@@ -16,15 +16,15 @@
       </snapshots>
     </repository>
   </repositories>
-  
+
   <properties>
-    <attivio.version>5.2.7-SNAPSHOT</attivio.version>
+    <attivio.version>5.5.1-SNAPSHOT</attivio.version>
     <attivio.home>ATTIVIO-HOME</attivio.home>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  
+
   <dependencies>
     <!-- Attivio compile time dependencies -->
     <dependency>
@@ -38,14 +38,14 @@
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-core-api.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>com.attivio.platform.core</groupId>
       <artifactId>kernel</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-core-kernel.jar</systemPath>
-    </dependency>  
+    </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -66,55 +66,55 @@
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-core-model.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>com.attivio.platform.platform</groupId>
       <artifactId>store</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-platform-store.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>com.attivio.platform.platform.perfmon</groupId>
       <artifactId>client</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-platform-perfmon-client.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>com.attivio.platform.platform</groupId>
       <artifactId>springutil</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-platform-springutil.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>com.attivio.platform.platform.esb</groupId>
       <artifactId>zoo</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-platform-esb-zoo.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>com.attivio.platform.platform</groupId>
       <artifactId>util</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
       <systemPath>${attivio.home}/lib/aie-platform-util.jar</systemPath>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>com.attivio.3rdparty.partial</groupId>
       <artifactId>curator-x-discovery-2.9.1-aie</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
-      <systemPath>${attivio.home}/lib/curator-x-discovery-2.9.1-aie-5.2.7.jar</systemPath>
+      <systemPath>${attivio.home}/lib/curator-x-discovery-2.9.1-aie-5.5.1.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.attivio.3rdparty.partial</groupId>
       <artifactId>xstream-1.4.2-aie</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
-      <systemPath>${attivio.home}/lib/xstream-1.4.2-aie-5.2.7.jar</systemPath>
+      <systemPath>${attivio.home}/lib/xstream-1.4.2-aie-5.5.1.jar</systemPath>
     </dependency>
 
     <!-- These are non-Attivio runtime dependencies -->
@@ -206,7 +206,7 @@
       <artifactId>fastutil</artifactId>
       <version>7.0.7</version>
     </dependency>
-    
+
     HADOOP-MARKER
   </dependencies>
 </project>

@@ -31,17 +31,17 @@ def hadoopDependencies = """
     <dependency>
       <groupId>org.apache.hbase</groupId>
       <artifactId>hbase-client</artifactId>
-      <version>1.1.2</version>
+      <version>1.2.5</version>
     </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-hdfs</artifactId>
-      <version>2.7.2</version>
+      <version>2.7.3</version>
     </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-common</artifactId>
-      <version>2.7.2</version>
+      <version>2.7.3</version>
     </dependency>
 """
 if (hadoop.equalsIgnoreCase("yes") || hadoop.equalsIgnoreCase("y")) {

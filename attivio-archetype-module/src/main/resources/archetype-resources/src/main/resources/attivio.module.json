@@ -1,0 +1,9 @@
+{
+  "name":"${artifactId}",
+  "moduleVersion":"${version}",
+  "description":"A description of my module",
+  "initClassName":"${groupId}.${artifactId}.ModuleInit",
+  "components": [
+    "${groupId}.${artifactId}.SampleFieldValueCreatingTransformer"
+  ]
+}

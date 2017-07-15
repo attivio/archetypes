@@ -3,13 +3,13 @@
   <parent>
     <groupId>com.attivio.platform</groupId>
     <artifactId>archetypes</artifactId>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>5.5.1.0-SNAPSHOT</version>
   </parent>
   <groupId>com.attivio.platform.archetypes</groupId>
   <artifactId>attivio-archetype-module</artifactId>
   <packaging>maven-archetype</packaging>
   <name>platform/archetypes/attivio-archetype-module</name>
-  <description>Attivio eModule Maven Archetype</description>
+  <description>Attivio Module Maven Archetype</description>
   <properties>
     <sample.sources.unpack.dir>${project.build.directory}/sources</sample.sources.unpack.dir>
     <sample.sources.resource.dir>${project.build.directory}/classes/archetype-resources/src</sample.sources.resource.dir>
@@ -24,7 +24,7 @@
             <artifactItem>
               <groupId>com.attivio.platform.sdk</groupId>
               <artifactId>testutils</artifactId>
-              <version>5.2.7-SNAPSHOT</version>
+              <version>5.5.1-SNAPSHOT</version>
               <classifier>sources</classifier>
               <overWrite>false</overWrite>
               <outputDirectory>${sample.sources.unpack.dir}</outputDirectory>

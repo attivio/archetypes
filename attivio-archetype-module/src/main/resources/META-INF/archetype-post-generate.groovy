@@ -3,11 +3,13 @@ println "Cleaning up..."
 def moduleDir = new File(request.getOutputDirectory()+"/"+request.getArtifactId())
 def confDir = new File(moduleDir, "src/main/resources/${artifactId}");
 def webappsDir = new File(moduleDir, "src/main/resources/webapps/${artifactId}");
+def modulePackage = request.getGroupId()+'.'+request.getArtifactId();
+def packageInPathFormat = modulePackage.replaceAll("\\.", "/");
 
 // replace com.sample with the group and artifact ids
 moduleDir.eachDirRecurse() { dir ->
     dir.eachFileMatch(~/.*.java/) { file ->
-        String code = file.getText('UTF-8').replaceAll('com.sample.module', request.getGroupId()+'.'+request.getArtifactId())
+        String code = file.getText('UTF-8').replaceAll('com.sample.module', modulePackage)
         file.newWriter().withWriter { w ->
             w << code
         }
@@ -27,7 +29,13 @@ if (attivioHome == null) {
     }
 }
 
-if (includeWeb && attivioHome == null) {
+// convert includeWeb property
+def includeWebBool = false
+if (includeWeb.equalsIgnoreCase("yes") || includeWeb.equalsIgnoreCase("y")) {
+  includeWebBool = true;
+}
+
+if (includeWebBool && attivioHome == null) {
     println "Web inclusion requires Attivio installation and Attivio was not found on path"
     attivioHome = System.console().readLine 'Attivio Installation Directory?: '
 }
@@ -61,13 +69,14 @@ def webDependencies = """
        <version>1.6.2</version>
     </dependency>
 """
-if (includeWeb) {
+if (includeWebBool) {
     // replace marker with dependencies
     pomContent = pomContent.replace(includeWebMarker, webDependencies)
 } else {
     // delete webapps directory and AdminServlet
+    println "Package Path: "+packageInPathFormat;
     new File(moduleDir, 'src/main/resources/webapps').deleteDir()
-    new File(moduleDir, 'src/main/java/'+request.getGroupId()+'/AdminServlet.java').delete()
+    new File(moduleDir, 'src/main/java/'+packageInPathFormat+'/AdminServlet.java').delete()
     // remove marker from pom
     pomContent = pomContent.replace(includeWebMarker, '')
 }

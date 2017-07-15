@@ -16,21 +16,21 @@
       </snapshots>
     </repository>
   </repositories>
-  
+
   <properties>
-    <attivio.version>5.2.7-SNAPSHOT</attivio.version>
+    <attivio.version>5.5.1-SNAPSHOT</attivio.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  
+
   <dependencies>
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>server</artifactId>
       <version>${attivio.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>model</artifactId>

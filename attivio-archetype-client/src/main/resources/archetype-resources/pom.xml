@@ -9,7 +9,7 @@
   <repositories>
     <repository>
       <id>Attivio SDK Repository</id>
-      <url>https://raw.githubusercontent.com/attivio/sdk/develop</url>
+      <url>https://raw.githubusercontent.com/attivio/sdk/5.2</url>
       <snapshots>
         <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
@@ -18,7 +18,7 @@
   </repositories>
 
   <properties>
-    <attivio.version>5.5.1-SNAPSHOT</attivio.version>
+    <attivio.version>5.2.6</attivio.version>
     <attivio.home>ATTIVIO-HOME</attivio.home>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -107,14 +107,14 @@
       <artifactId>curator-x-discovery-2.9.1-aie</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
-      <systemPath>${attivio.home}/lib/curator-x-discovery-2.9.1-aie-5.5.1.jar</systemPath>
+      <systemPath>${attivio.home}/lib/curator-x-discovery-2.9.1-aie-5.2.6.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.attivio.3rdparty.partial</groupId>
       <artifactId>xstream-1.4.2-aie</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
-      <systemPath>${attivio.home}/lib/xstream-1.4.2-aie-5.5.1.jar</systemPath>
+      <systemPath>${attivio.home}/lib/xstream-1.4.2-aie-5.2.6.jar</systemPath>
     </dependency>
 
     <!-- These are non-Attivio runtime dependencies -->

@@ -7,12 +7,6 @@
   </formats>
 
   <includeBaseDirectory>false</includeBaseDirectory>
-  <fileSets>
-    <fileSet>
-      <directory>target/classes</directory>
-      <outputDirectory>/</outputDirectory>
-    </fileSet>
-  </fileSets>
   <dependencySets>
     <dependencySet>
       <outputDirectory>lib</outputDirectory>

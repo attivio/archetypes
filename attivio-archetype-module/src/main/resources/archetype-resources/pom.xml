@@ -29,18 +29,21 @@
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>server</artifactId>
       <version>${attivio.version}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>model</artifactId>
       <version>${attivio.version}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>client</artifactId>
       <version>${attivio.version}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -54,6 +57,7 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.7.24</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>

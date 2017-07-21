@@ -21,6 +21,9 @@
     <requiredProperty key="package">
       <defaultValue>${groupId}.${artifactId}</defaultValue>
     </requiredProperty>
+    <requiredProperty key="version">
+      <defaultValue>0.1.0-SNAPSHOT</defaultValue>
+    </requiredProperty>
   </requiredProperties>
 
 </archetype-descriptor>

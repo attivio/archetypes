@@ -7,6 +7,24 @@
   </formats>
 
   <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <excludes>
+        <exclude>attivio.module.json</exclude>
+      </excludes>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+
+  <files>
+    <file>
+      <source>src/main/resources/attivio.module.json</source>
+      <filtered>true</filtered>
+      <outputDirectory>/</outputDirectory>
+    </file>
+  </files>
+  
   <dependencySets>
     <dependencySet>
       <outputDirectory>lib</outputDirectory>

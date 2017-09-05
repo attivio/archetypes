@@ -81,7 +81,7 @@
         <executions>
           <execution>
             <id>Generate module zip file</id>
-            <phase>install</phase>
+            <phase>package</phase>
             <goals>
               <goal>single</goal>
             </goals>

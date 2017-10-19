@@ -29,22 +29,11 @@ if (attivioHome == null) {
     }
 }
 
-// convert includeWeb property
-def includeWebBool = false
-if (includeWeb.equalsIgnoreCase("yes") || includeWeb.equalsIgnoreCase("y")) {
-  includeWebBool = true;
-}
-
-if (includeWebBool && attivioHome == null) {
-    println "Web inclusion requires Attivio installation and Attivio was not found on path"
-    attivioHome = System.console().readLine 'Attivio Installation Directory?: '
-}
 if (attivioHome != null) {
     println "Attivio installed at: ${attivioHome}"
 }
 
 // handle inclusion of web servlet
-def includeWebMarker = 'INCLUDE-WEB-MARKER'
 def pomFile = new File(moduleDir, 'pom.xml')
 println "Updating "+pomFile
 
@@ -69,17 +58,6 @@ def webDependencies = """
        <version>1.6.2</version>
     </dependency>
 """
-if (includeWebBool) {
-    // replace marker with dependencies
-    pomContent = pomContent.replace(includeWebMarker, webDependencies)
-} else {
-    // delete webapps directory and AdminServlet
-    println "Package Path: "+packageInPathFormat;
-    new File(moduleDir, 'src/main/resources/webapps').deleteDir()
-    new File(moduleDir, 'src/main/java/'+packageInPathFormat+'/AdminServlet.java').delete()
-    // remove marker from pom
-    pomContent = pomContent.replace(includeWebMarker, '')
-}
 
 // rewrite pom.xml
 pomFile.newWriter().withWriter { w ->

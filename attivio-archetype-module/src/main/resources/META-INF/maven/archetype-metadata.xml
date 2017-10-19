@@ -21,9 +21,6 @@
   </fileSets>
 
   <requiredProperties>
-    <requiredProperty key="includeWeb">
-      <defaultValue>no</defaultValue>
-    </requiredProperty>
     <!-- Without this, when package is defaulted it includes only groupId -->
     <requiredProperty key="package">
       <defaultValue>${groupId}.${artifactId}</defaultValue>

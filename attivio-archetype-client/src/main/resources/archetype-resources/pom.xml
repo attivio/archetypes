@@ -104,10 +104,10 @@
     </dependency>
     <dependency>
       <groupId>com.attivio.3rdparty.partial</groupId>
-      <artifactId>curator-x-discovery-2.9.1-aie</artifactId>
+      <artifactId>curator-x-discovery-2.12.0-aie</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
-      <systemPath>${attivio.home}/lib/curator-x-discovery-2.9.1-aie-5.5.0.jar</systemPath>
+      <systemPath>${attivio.home}/lib/curator-x-discovery-2.12.0-aie-5.5.0.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.attivio.3rdparty.partial</groupId>

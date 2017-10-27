@@ -24,7 +24,7 @@
             <artifactItem>
               <groupId>com.attivio.platform.sdk</groupId>
               <artifactId>testutils</artifactId>
-              <version>5.5.1-SNAPSHOT</version>
+              <version>5.5</version>
               <classifier>sources</classifier>
               <overWrite>false</overWrite>
               <outputDirectory>${sample.sources.unpack.dir}</outputDirectory>

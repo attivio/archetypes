@@ -18,7 +18,7 @@
   </repositories>
 
   <properties>
-    <attivio.version>5.5.1-SNAPSHOT</attivio.version>
+    <attivio.version>5.5</attivio.version>
     <attivio.home>ATTIVIO-HOME</attivio.home>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -104,10 +104,10 @@
     </dependency>
     <dependency>
       <groupId>com.attivio.3rdparty.partial</groupId>
-      <artifactId>curator-x-discovery-2.9.1-aie</artifactId>
+      <artifactId>curator-x-discovery-2.12.0-aie</artifactId>
       <version>${attivio.version}</version>
       <scope>system</scope>
-      <systemPath>${attivio.home}/lib/curator-x-discovery-2.9.1-aie-5.5.1.jar</systemPath>
+      <systemPath>${attivio.home}/lib/curator-x-discovery-2.12.0-aie-5.5.1.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.attivio.3rdparty.partial</groupId>

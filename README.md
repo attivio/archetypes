@@ -19,14 +19,16 @@ Local setup procedure for deploying Attivio Maven artifacts to Maven Central.  T
 * Select the Summary drop-down and choose _User Token_
 * Select Access User Token > re-enter credentials
 * Copy the the displayed `<server>...</server>` XML into a temporary location (the window will close after 1min)
-* Open ~/.m2/settings.xml
+* Open `~/.m2/settings.xml`
 * Add the copied server entry under the server element and replace ${server} with ossrh.
-    <server>
-      <id>ossrh</id>
-      <username>(username string from token)</username>
-      <password>(password string from token)</password>
-    </server> 
-* Save settings.xml and leave open.
+```
+<server>
+  <id>ossrh</id>
+  <username>(username string from token)</username>
+  <password>(password string from token)</password>
+</server> 
+```
+* Save `settings.xml` and leave open.
 * Open a terminal window.
 * Obtain the Attivio Releng public GPG key.
     gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 8F7F7174

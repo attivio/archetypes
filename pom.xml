@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.attivio.platform</groupId>
   <artifactId>archetypes</artifactId>
-  <version>5.5.0.4-SNAPSHOT</version>
+  <version>5.5.0.4</version>
   <name>platform/archetypes</name>
   <packaging>pom</packaging>
   <description>Parent POM for Attivio SDK Maven Archetypes</description>
@@ -46,7 +46,7 @@
     <connection>scm:git:git@github.com:attivio/archetypes.git</connection>
     <developerConnection>scm:git:git@github.com:attivio/archetypes.git</developerConnection>
     <url>https://github.com/attivio/archetypes</url>
-    <tag>HEAD</tag>
+    <tag>archetypes-5.5.0.4</tag>
   </scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

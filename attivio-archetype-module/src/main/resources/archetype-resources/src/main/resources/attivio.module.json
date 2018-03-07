@@ -1,9 +1,12 @@
 {
   "name":"${artifactId}",
-  "moduleVersion":"\${version}",
+  "moduleVersion":"${project.version}",
   "description":"A description of my module",
   "initClassName":"${groupId}.${artifactId}.ModuleInit",
   "components": [
     "${groupId}.${artifactId}.SampleFieldValueCreatingTransformer"
-  ]
+  ],
+  "newFiles": {
+    "lib/${artifactId}.jar":"lib/${artifactId}-${project.version}.jar"
+  }
 }

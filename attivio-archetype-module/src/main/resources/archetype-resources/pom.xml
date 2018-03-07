@@ -10,15 +10,12 @@
     <repository>
       <id>Attivio SDK Repository</id>
       <url>https://raw.githubusercontent.com/attivio/sdk/5.5</url>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
     </repository>
   </repositories>
 
   <properties>
-    <attivio.version>5.5.0</attivio.version>
+    <sdk.version>5.5.0.3</sdk.version>
+    <curator.attivio.version>2.12.0</curator.attivio.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,21 +25,21 @@
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>server</artifactId>
-      <version>${attivio.version}</version>
+      <version>${sdk.version}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>model</artifactId>
-      <version>${attivio.version}</version>
+      <version>${sdk.version}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>client</artifactId>
-      <version>${attivio.version}</version>
+      <version>${sdk.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -50,7 +47,7 @@
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>testutils</artifactId>
       <scope>test</scope>
-      <version>${attivio.version}</version>
+      <version>${sdk.version}</version>
     </dependency>
 
     <dependency>
@@ -70,6 +67,12 @@
   </dependencies>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>

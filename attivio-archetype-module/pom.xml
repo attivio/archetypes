@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.attivio.platform</groupId>
     <artifactId>archetypes</artifactId>
-    <version>5.5.0.4-SNAPSHOT</version>
+    <version>5.5.0.4</version>
   </parent>
   <groupId>com.attivio.platform.archetypes</groupId>
   <artifactId>attivio-archetype-module</artifactId>

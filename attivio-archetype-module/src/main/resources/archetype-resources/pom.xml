@@ -18,7 +18,7 @@
   </repositories>
 
   <properties>
-    <attivio.version>5.5</attivio.version>
+    <attivio.version>5.6.0.0-SNAPSHOT</attivio.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,21 +27,14 @@
   <dependencies>
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
-      <artifactId>server</artifactId>
+      <artifactId>api</artifactId>
       <version>${attivio.version}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
-      <artifactId>model</artifactId>
-      <version>${attivio.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.attivio.platform.sdk</groupId>
-      <artifactId>client</artifactId>
+      <artifactId>runtime</artifactId>
       <version>${attivio.version}</version>
       <scope>provided</scope>
     </dependency>

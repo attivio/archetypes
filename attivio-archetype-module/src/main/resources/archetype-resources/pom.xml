@@ -9,12 +9,13 @@
   <repositories>
     <repository>
       <id>Attivio SDK Repository</id>
-      <url>https://raw.githubusercontent.com/attivio/sdk/5.5</url>
+      <!-- point to develop for now until we release 5.5.1 -->
+      <url>https://raw.githubusercontent.com/attivio/sdk/develop</url>
     </repository>
   </repositories>
 
   <properties>
-    <sdk.version>5.5.0.3</sdk.version>
+    <sdk.version>5.5.1.0-SNAPSHOT</sdk.version>
     <curator.attivio.version>2.12.0</curator.attivio.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -24,21 +25,14 @@
   <dependencies>
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
-      <artifactId>server</artifactId>
+      <artifactId>api</artifactId>
       <version>${sdk.version}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
-      <artifactId>model</artifactId>
-      <version>${sdk.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.attivio.platform.sdk</groupId>
-      <artifactId>client</artifactId>
+      <artifactId>runtime</artifactId>
       <version>${sdk.version}</version>
       <scope>provided</scope>
     </dependency>

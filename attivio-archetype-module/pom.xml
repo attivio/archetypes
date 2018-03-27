@@ -60,6 +60,20 @@
               </artifactItems>
             </configuration>
           </execution>
+          <execution>
+            <id>unpack-testutil-sample-test-resources</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <includes>test/resources/*</includes>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
       <plugin>
@@ -99,6 +113,22 @@
                   <includes>
                     <include>*.java</include>
                   </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-testutil-sample-test-resources</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${sample.sources.resource.dir}/test/resources</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${sample.sources.unpack.dir}/test/resources</directory>
                 </resource>
               </resources>
             </configuration>

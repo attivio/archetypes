@@ -55,7 +55,6 @@
   </properties>
   <modules>
     <module>attivio-archetype-module</module>
-    <module>attivio-archetype-client</module>
   </modules>
   <dependencyManagement>
     <dependencies>

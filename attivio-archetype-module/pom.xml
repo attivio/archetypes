@@ -12,6 +12,8 @@
   <description>Attivio Module Maven Archetype</description>
   <properties>
     <sample.sources.unpack.dir>${project.build.directory}/sources</sample.sources.unpack.dir>
+    <sample.sources.main.unpack.dir>${sample.sources.unpack.dir}/main</sample.sources.main.unpack.dir>
+    <sample.sources.test.unpack.dir>${sample.sources.unpack.dir}/test</sample.sources.test.unpack.dir>
     <sample.sources.resource.dir>${project.build.directory}/classes/archetype-resources/src</sample.sources.resource.dir>
   </properties>
   <build>
@@ -19,18 +21,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
-        <configuration>
-          <artifactItems>
-            <artifactItem>
-              <groupId>com.attivio.platform.sdk</groupId>
-              <artifactId>testutils</artifactId>
-              <version>5.5</version>
-              <classifier>sources</classifier>
-              <overWrite>false</overWrite>
-              <outputDirectory>${sample.sources.unpack.dir}</outputDirectory>
-            </artifactItem>
-          </artifactItems>
-        </configuration>
         <executions>
           <execution>
             <id>unpack-testutil-sample-sources</id>
@@ -41,7 +31,12 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <includes>main/java/com/sample/module/*.java</includes>
+                  <groupId>com.attivio.platform.sdk</groupId>
+                  <artifactId>testutils</artifactId>
+                  <version>5.5.1.0-SNAPSHOT</version>
+                  <classifier>sources</classifier>
+                  <overWrite>false</overWrite>
+                  <outputDirectory>${sample.sources.main.unpack.dir}</outputDirectory>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -55,21 +50,12 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <includes>test/java/com/sample/module/*.java</includes>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-          <execution>
-            <id>unpack-testutil-sample-test-resources</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <includes>test/resources/*</includes>
+                  <groupId>com.attivio.platform.sdk</groupId>
+                  <artifactId>testutils</artifactId>
+                  <version>5.5.1.0-SNAPSHOT</version>
+                  <classifier>test-sources</classifier>
+                  <overWrite>false</overWrite>
+                  <outputDirectory>${sample.sources.test.unpack.dir}</outputDirectory>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -80,7 +66,7 @@
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
           <execution>
-            <id>copy-testutil-sample-sources</id>
+            <id>copy-testutil-sample-main</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>copy-resources</goal>
@@ -90,7 +76,7 @@
               <overwrite>true</overwrite>
               <resources>
                 <resource>
-                  <directory>${sample.sources.unpack.dir}/main/java/com/sample/module</directory>
+                  <directory>${sample.sources.main.unpack.dir}/com/sample/module</directory>
                   <includes>
                     <include>*.java</include>
                   </includes>
@@ -99,7 +85,7 @@
             </configuration>
           </execution>
           <execution>
-            <id>copy-testutil-sample-test-sources</id>
+            <id>copy-testutil-sample-test</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>copy-resources</goal>
@@ -109,26 +95,10 @@
               <overwrite>true</overwrite>
               <resources>
                 <resource>
-                  <directory>${sample.sources.unpack.dir}/test/java/com/sample/module</directory>
+                  <directory>${sample.sources.test.unpack.dir}/com/sample/module</directory>
                   <includes>
                     <include>*.java</include>
                   </includes>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-          <execution>
-            <id>copy-testutil-sample-test-resources</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${sample.sources.resource.dir}/test/resources</outputDirectory>
-              <overwrite>true</overwrite>
-              <resources>
-                <resource>
-                  <directory>${sample.sources.unpack.dir}/test/resources</directory>
                 </resource>
               </resources>
             </configuration>

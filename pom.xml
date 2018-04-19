@@ -50,7 +50,8 @@
   </scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <attivio.version>5.5.0</attivio.version>
+    <attivio.version>5.5.1</attivio.version>
+    <sdk.version>5.5.1.0</sdk.version>
     <gpg.keyname>8F7F7174</gpg.keyname>
   </properties>
   <modules>
@@ -61,8 +62,14 @@
       <dependency>
         <groupId>com.attivio.platform.sdk</groupId>
         <artifactId>testutils</artifactId>
-        <version>${attivio.version}</version>
+        <version>${sdk.version}</version>
         <classifier>sources</classifier>
+      </dependency>
+      <dependency>
+        <groupId>com.attivio.platform.sdk</groupId>
+        <artifactId>testutils</artifactId>
+        <version>${sdk.version}</version>
+        <classifier>test-sources</classifier>
       </dependency>
     </dependencies>
   </dependencyManagement>

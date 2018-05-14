@@ -4,7 +4,8 @@
   "description":"A description of my module",
   "initClassName":"${groupId}.${artifactId}.ModuleInit",
   "connectors": {
-      "searchanalytics":"${groupId}.${artifactId}.SampleDataSourceScanner"
+      "simpleSampleScanner":"${groupId}.${artifactId}.SampleDataSourceScanner",
+      "incrementalSampleScanner":"${groupId}.${artifactId}.SampleIncrementalDataSourceScanner"
   },
   "components": [
     "${groupId}.${artifactId}.SampleFieldValueCreatingTransformer"

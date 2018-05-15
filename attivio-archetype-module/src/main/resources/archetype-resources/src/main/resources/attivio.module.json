@@ -5,7 +5,8 @@
   "initClassName":"${groupId}.${artifactId}.ModuleInit",
   "connectors": {
       "simpleSampleScanner":"${groupId}.${artifactId}.SampleDataSourceScanner",
-      "incrementalSampleScanner":"${groupId}.${artifactId}.SampleIncrementalDataSourceScanner"
+      "incrementalSampleScanner":"${groupId}.${artifactId}.SampleIncrementalDataSourceScanner",
+      "principalSampleScanner":"${groupId}.${artifactId}.SamplePrincipalScanner"
   },
   "components": [
     "${groupId}.${artifactId}.SampleFieldValueCreatingTransformer"

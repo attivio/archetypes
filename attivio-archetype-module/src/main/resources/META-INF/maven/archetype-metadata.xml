@@ -1,13 +1,13 @@
-<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0"?>
+<archetype-descriptor
+  xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
-  name="attivio-archetype-module" partial="false" >
-
+  name="attivio-archetype-module"
+  partial="false">
   <fileSets>
     <fileSet>
-      <directory/>
-      <includes>
-        <include>dist-assembly.xml</include>
-      </includes>
+      <directory>src/main/assembly</directory>
     </fileSet>
     <fileSet filtered="true">
       <directory>src/main/resources</directory>
@@ -22,7 +22,6 @@
       <directory>src/test/resources</directory>
     </fileSet>
   </fileSets>
-
   <requiredProperties>
     <!-- Without this, when package is defaulted it includes only groupId -->
     <requiredProperty key="package">
@@ -32,5 +31,4 @@
       <defaultValue>0.1.0-SNAPSHOT</defaultValue>
     </requiredProperty>
   </requiredProperties>
-
 </archetype-descriptor>

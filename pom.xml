@@ -3,31 +3,26 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.attivio.platform</groupId>
   <artifactId>archetypes</artifactId>
-  <version>4.4.0.5-SNAPSHOT</version>
+  <version>4.4.2.0</version>
   <name>platform/archetypes</name>
   <packaging>pom</packaging>
   <description>Parent POM for Attivio SDK Maven Archetypes</description>
   <url>https://github.com/attivio/archetypes</url>
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
   <repositories>
     <repository>
-      <id>Attivio SDK Repository</id>
-      <url>https://raw.githubusercontent.com/attivio/sdk/4.4</url>
-      <snapshots>
+      <id>${maven.server.id.release}</id>
+      <url>${maven.url.base.repo}/${maven.repo.release}</url>
+      <releases>
         <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
+      </releases>
     </repository>
   </repositories>
+  <distributionManagement>
+    <repository>
+      <id>${maven.server.id.release}</id>
+      <url>${maven.url.base.dist}/${maven.repo.release}/archetypes/;publish=1</url>
+    </repository>
+  </distributionManagement>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -50,8 +45,12 @@
   </scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <attivio.version>4.4.0</attivio.version>
-    <gpg.keyname>8F7F7174</gpg.keyname>
+    <attivio.version>4.4.2</attivio.version>
+    <sdk.version>4.4.2.0</sdk.version>
+    <maven.url.base.repo>https://attivio.bintray.com</maven.url.base.repo>
+    <maven.url.base.dist>https://api.bintray.com/maven/attivio</maven.url.base.dist>
+    <maven.repo.release>platform</maven.repo.release>
+    <maven.server.id.release>bintray-attivio-${maven.repo.release}</maven.server.id.release>
   </properties>
   <modules>
     <module>attivio-archetype-module</module>
@@ -62,100 +61,34 @@
       <dependency>
         <groupId>com.attivio.platform.sdk</groupId>
         <artifactId>testutils</artifactId>
-        <version>${attivio.version}</version>
+        <version>${sdk.version}</version>
         <classifier>sources</classifier>
       </dependency>
     </dependencies>
   </dependencyManagement>
-  <profiles>
-    <profile>
-      <id>release</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-                <configuration>
-                  <keyname>${gpg.keyname}</keyname>
-                  <passphraseServerId>${gpg.keyname}</passphraseServerId>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
   <build>
     <extensions>
       <extension>
         <groupId>org.apache.maven.archetype</groupId>
         <artifactId>archetype-packaging</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
       </extension>
     </extensions>
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-archetype-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
+          <version>3.1.0</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-        <plugin>
-          <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>1.6.7</version>
-          <extensions>true</extensions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.3</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.6</version>
+          <version>3.1.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>ossrh</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <configuration>
-          <autoVersionSubmodules>true</autoVersionSubmodules>
-          <useReleaseProfile>false</useReleaseProfile>
-          <goals>deploy</goals>
-        </configuration>
-      </plugin>
-    </plugins>
   </build>
 </project>

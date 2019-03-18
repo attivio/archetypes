@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.attivio.platform</groupId>
     <artifactId>archetypes</artifactId>
-    <version>5.6.0.0-SNAPSHOT</version>
+    <version>5.6.1.0-SNAPSHOT</version>
   </parent>
   <groupId>com.attivio.platform.archetypes</groupId>
   <artifactId>attivio-archetype-module</artifactId>
@@ -17,6 +17,22 @@
     <sample.sources.resource.dir>${project.build.directory}/classes/archetype-resources/src</sample.sources.resource.dir>
   </properties>
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>archetype-resources/pom.xml</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <exclude>archetype-resources/pom.xml</exclude>
+        </excludes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -33,7 +49,7 @@
                 <artifactItem>
                   <groupId>com.attivio.platform.sdk</groupId>
                   <artifactId>testutils</artifactId>
-                  <version>5.6.0.0-SNAPSHOT</version>
+                  <version>${attivio.version}</version>
                   <classifier>sources</classifier>
                   <overWrite>false</overWrite>
                   <outputDirectory>${sample.sources.main.unpack.dir}</outputDirectory>
@@ -52,7 +68,7 @@
                 <artifactItem>
                   <groupId>com.attivio.platform.sdk</groupId>
                   <artifactId>testutils</artifactId>
-                  <version>5.6.0.0-SNAPSHOT</version>
+                  <version>${attivio.version}</version>
                   <classifier>test-sources</classifier>
                   <overWrite>false</overWrite>
                   <outputDirectory>${sample.sources.test.unpack.dir}</outputDirectory>
@@ -64,6 +80,9 @@
       </plugin>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <escapeString>\</escapeString>
+        </configuration>
         <executions>
           <execution>
             <id>copy-testutil-sample-main</id>

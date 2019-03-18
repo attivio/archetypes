@@ -7,7 +7,7 @@
   partial="false">
   <fileSets>
     <fileSet>
-      <directory>src/main/assembly</directory>
+      <directory>src/assembly</directory>
     </fileSet>
     <fileSet filtered="true">
       <directory>src/main/resources</directory>

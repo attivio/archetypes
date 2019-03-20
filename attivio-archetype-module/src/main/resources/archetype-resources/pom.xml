@@ -7,12 +7,14 @@
   <!-- This provides access to the hosted Attivio SDK jars -->
   <repositories>
     <repository>
-      <id>attivio-sdk-repository-develop</id>
-      <url>https://raw.githubusercontent.com/attivio/sdk/develop</url>
+      <id>${maven_repo_id}</id>
+      <url>${maven_repo_url}</url>
       <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
+        <enabled>${maven_repo_snapshots_enabled}</enabled>
       </snapshots>
+      <releases>
+        <enabled>${maven_repo_releases_enabled}</enabled>
+      </releases>
     </repository>
   </repositories>
   <properties>
@@ -60,6 +62,18 @@
         <filtering>true</filtering>
       </resource>
     </resources>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.1.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.20.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>

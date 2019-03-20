@@ -113,10 +113,10 @@
             <maven_repo_releases_enabled>true</maven_repo_releases_enabled>
           </releaseBranchProperties>
           <snapshotDeploymentRepository>
-            <![CDATA[${maven.server.id.snapshot}::default::${maven.url.base.dist}/${maven.repo.snapshot}/archetypes::true]]>
+            <![CDATA[${maven.server.id.snapshot}::default::${maven.url.base.dist}/${maven.repo.snapshot}/archetypes/;publish=1::true]]>
           </snapshotDeploymentRepository>
           <stageDeploymentRepository>
-            <![CDATA[${maven.server.id.snapshot}::default::${maven.url.base.dist}/${maven.repo.snapshot}/archetypes::true]]>
+            <![CDATA[${maven.server.id.snapshot}::default::${maven.url.base.dist}/${maven.repo.snapshot}/archetypes/;publish=1::true]]>
           </stageDeploymentRepository>
           <releaseDeploymentRepository>
             <![CDATA[${maven.server.id.release}::default::${maven.url.base.dist}/${maven.repo.release}/archetypes::false]]>

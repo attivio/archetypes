@@ -20,7 +20,7 @@
   <distributionManagement>
     <repository>
       <id>${maven.server.id.release}</id>
-      <url>${maven.url.base.dist}/${maven.repo.release}/archetypes</url>
+      <url>${maven.url.base.dist}/${maven.repo.release}/archetypes/;publish=1</url>
     </repository>
   </distributionManagement>
   <licenses>

@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.attivio.platform</groupId>
     <artifactId>archetypes</artifactId>
-    <version>5.5.0.5-SNAPSHOT</version>
+    <version>5.5.0.5</version>
   </parent>
   <groupId>com.attivio.platform.archetypes</groupId>
   <artifactId>attivio-archetype-module</artifactId>
@@ -15,6 +15,22 @@
     <sample.sources.resource.dir>${project.build.directory}/classes/archetype-resources/src</sample.sources.resource.dir>
   </properties>
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>archetype-resources/pom.xml</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <exclude>archetype-resources/pom.xml</exclude>
+        </excludes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -24,7 +40,6 @@
             <artifactItem>
               <groupId>com.attivio.platform.sdk</groupId>
               <artifactId>testutils</artifactId>
-              <version>5.5.0</version>
               <classifier>sources</classifier>
               <overWrite>false</overWrite>
               <outputDirectory>${sample.sources.unpack.dir}</outputDirectory>
@@ -64,6 +79,9 @@
       </plugin>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <escapeString>\</escapeString>
+        </configuration>
         <executions>
           <execution>
             <id>copy-testutil-sample-sources</id>

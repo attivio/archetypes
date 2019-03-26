@@ -1,64 +1,58 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>${groupId}</groupId>
-  <artifactId>${artifactId}</artifactId>
-  <version>${version}</version>
-
+  <groupId>\${groupId}</groupId>
+  <artifactId>\${artifactId}</artifactId>
+  <version>\${version}</version>
   <!-- This provides access to the hosted Attivio SDK jars -->
   <repositories>
     <repository>
-      <id>Attivio SDK Repository</id>
-      <url>https://raw.githubusercontent.com/attivio/sdk/5.5</url>
+      <id>${maven.server.id.release}</id>
+      <url>${maven.url.base.repo}/${maven.repo.release}</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
     </repository>
   </repositories>
-
   <properties>
-    <sdk.version>5.5.1.0</sdk.version>
+    <sdk.version>${sdk.version}</sdk.version>
     <curator.attivio.version>2.12.0</curator.attivio.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>api</artifactId>
-      <version>${sdk.version}</version>
+      <version>\${sdk.version}</version>
       <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>runtime</artifactId>
-      <version>${sdk.version}</version>
+      <version>\${sdk.version}</version>
       <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>com.attivio.platform.sdk</groupId>
       <artifactId>testutils</artifactId>
       <scope>test</scope>
-      <version>${sdk.version}</version>
+      <version>\${sdk.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.7.24</version>
       <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
       <version>4.12</version>
     </dependency>
-
   </dependencies>
-
   <build>
     <resources>
       <resource>
@@ -66,21 +60,31 @@
         <filtering>true</filtering>
       </resource>
     </resources>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.1.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.20.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.0.0</version>
         <executions>
           <execution>
-            <id>Generate module zip file</id>
+            <id>generate-dist-zip</id>
             <phase>package</phase>
             <goals>
               <goal>single</goal>
             </goals>
             <configuration>
-              <appendAssemblyId>false</appendAssemblyId>
               <descriptors>
-                <descriptor>dist-assembly.xml</descriptor>
+                <descriptor>src/assembly/dist.xml</descriptor>
               </descriptors>
             </configuration>
           </execution>

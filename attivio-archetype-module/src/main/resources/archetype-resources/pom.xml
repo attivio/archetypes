@@ -22,6 +22,16 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Dependency versions -->
+    <version.slf4j>1.7.24</version.slf4j>
+    <version.junit>4.12</version.junit>
+    <version.commons.io>2.4</version.commons.io>
+    <version.httpcomponents.httpclient>4.5.1</version.httpcomponents.httpclient>
+    <version.httpcomponents.httpcore>4.4.3</version.httpcomponents.httpcore>
+    <version.gwt.servlet>2.8.2</version.gwt.servlet>
+    <!-- Plugin versions -->
+    <version.plugin.assembly>3.1.1</version.plugin.assembly>
+    <version.plugin.surefire>2.20.1</version.plugin.surefire>
   </properties>
   <dependencies>
     <dependency>
@@ -45,14 +55,38 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.24</version>
+      <version>\${version.slf4j}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <version>\${version.junit}</version>
       <scope>test</scope>
-      <version>4.12</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>\${version.commons.io}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>\${version.httpcomponents.httpclient}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore</artifactId>
+      <version>\${version.httpcomponents.httpcore}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+      <version>\${version.gwt.servlet}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
@@ -66,18 +100,21 @@
       <plugins>
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.1.1</version>
+          <version>\${version.plugin.assembly}</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.20.1</version>
+          <version>\${version.plugin.surefire}</version>
+          <configuration>
+            <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>\${version.plugin.assembly}</version>
         <executions>
           <execution>
             <id>generate-dist-zip</id>

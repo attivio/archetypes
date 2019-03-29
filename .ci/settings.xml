@@ -5,13 +5,13 @@
           https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>${maven.server.id.snapshot}</id>
-      <username>automation@attivio</username>
+      <id>bintray-attivio-development</id>
+      <username>${env.DIST_USERNAME}</username>
       <password>${env.DIST_PASSWORD}</password>
     </server>
     <server>
-      <id>${maven.server.id.release}</id>
-      <username>automation@attivio</username>
+      <id>bintray-attivio-platform</id>
+      <username>${env.DIST_USERNAME}</username>
       <password>${env.DIST_PASSWORD}</password>
     </server>
   </servers>

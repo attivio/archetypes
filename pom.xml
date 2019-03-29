@@ -10,8 +10,8 @@
   <url>https://github.com/attivio/archetypes</url>
   <repositories>
     <repository>
-      <id>${maven.server.id.snapshot}</id>
-      <url>${maven.url.base.repo}/${maven.repo.snapshot}</url>
+      <id>bintray-attivio-development</id>
+      <url>${maven.url.repo}/development</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
@@ -20,8 +20,8 @@
       </releases>
     </repository>
     <repository>
-      <id>${maven.server.id.release}</id>
-      <url>${maven.url.base.repo}/${maven.repo.release}</url>
+      <id>bintray-attivio-platform</id>
+      <url>${maven.url.repo}/platform</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
@@ -53,12 +53,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <attivio.version>5.6.1.0-SNAPSHOT</attivio.version>
-    <maven.url.base.repo>https://attivio.bintray.com</maven.url.base.repo>
-    <maven.url.base.dist>https://api.bintray.com/maven/attivio</maven.url.base.dist>
-    <maven.repo.snapshot>development</maven.repo.snapshot>
-    <maven.repo.release>platform</maven.repo.release>
-    <maven.server.id.snapshot>bintray-attivio-${maven.repo.snapshot}</maven.server.id.snapshot>
-    <maven.server.id.release>bintray-attivio-${maven.repo.release}</maven.server.id.release>
+    <maven.url.repo>https://attivio.bintray.com</maven.url.repo>
+    <maven.url.distRepo>https://api.bintray.com/maven/attivio</maven.url.distRepo>
   </properties>
   <modules>
     <module>attivio-archetype-module</module>
@@ -101,25 +97,25 @@
         <artifactId>gitflow-helper-maven-plugin</artifactId>
         <configuration>
           <developmentBranchProperties>
-            <maven_repo_id>${maven.server.id.snapshot}</maven_repo_id>
-            <maven_repo_url>${maven.url.base.repo}/${maven.repo.snapshot}</maven_repo_url>
+            <maven_repo_id>bintray-maven-development</maven_repo_id>
+            <maven_repo_url>${maven.url.distRepo}/development</maven_repo_url>
             <maven_repo_snapshots_enabled>true</maven_repo_snapshots_enabled>
             <maven_repo_releases_enabled>false</maven_repo_releases_enabled>
           </developmentBranchProperties>
           <releaseBranchProperties>
-            <maven_repo_id>${maven.server.id.release}</maven_repo_id>
-            <maven_repo_url>${maven.url.base.repo}/${maven.repo.release}</maven_repo_url>
+            <maven_repo_id>bintray-maven-platform</maven_repo_id>
+            <maven_repo_url>${maven.url.distRepo}/platform</maven_repo_url>
             <maven_repo_snapshots_enabled>false</maven_repo_snapshots_enabled>
             <maven_repo_releases_enabled>true</maven_repo_releases_enabled>
           </releaseBranchProperties>
           <snapshotDeploymentRepository>
-            <![CDATA[${maven.server.id.snapshot}::default::${maven.url.base.dist}/${maven.repo.snapshot}/archetypes/;publish=1::true]]>
+            <![CDATA[bintray-maven-development::default::${maven.url.base.distRepo}/development/archetypes/;publish=1::true]]>
           </snapshotDeploymentRepository>
           <stageDeploymentRepository>
-            <![CDATA[${maven.server.id.snapshot}::default::${maven.url.base.dist}/${maven.repo.snapshot}/archetypes/;publish=1::true]]>
+            <![CDATA[bintray-maven-development::default::${maven.url.base.distRepo}/development/archetypes/;publish=1::true]]>
           </stageDeploymentRepository>
           <releaseDeploymentRepository>
-            <![CDATA[${maven.server.id.release}::default::${maven.url.base.dist}/${maven.repo.release}/archetypes::false]]>
+            <![CDATA[bintray-maven-platform::default::${maven.url.base.distRepo}/platform/archetypes/;publish=1::false]]>
           </releaseDeploymentRepository>
         </configuration>
         <executions>

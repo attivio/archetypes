@@ -6,12 +6,12 @@
   <servers>
     <server>
       <id>${maven.server.id.snapshot}</id>
-      <username>${env.DIST_USERNAME}</username>
+      <username>automation@attivio</username>
       <password>${env.DIST_PASSWORD}</password>
     </server>
     <server>
       <id>${maven.server.id.release}</id>
-      <username>${env.DIST_USERNAME}</username>
+      <username>automation@attivio</username>
       <password>${env.DIST_PASSWORD}</password>
     </server>
   </servers>

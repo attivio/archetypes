@@ -1,7 +1,9 @@
 language: java
+git:
+  depth: false
 env:
   global:
-    - secure: "ZQIcJ8FlP+5czLNhJyjk7HblCPzTtNnOye/MACFId/FB7YEfsqz7lU0pfd79w8p+ykaKlPWw+MFjOoEJuVApBEqivo5fWoCxzSYDvmwvLlYOB0+/9+95g4WG9Krszf9Urcot9ngFq/O/Yxd1kgi1NEHwgDy7NuvPxSimyXrJ/kyosudtksGwS0Y+a36IfYp3/9gP3eHzwPuLyPPz3+7vmCDWSRfcR3tNuYYvbsMERlGkE6VBVlzhfDowN2QBmLy5qJBvlzTt0Q11cYTg/UUCslgosPYRC4d0j+gxX7xwvYl4y2133a1MnTEuiImRE6LBCqYbtEtT5vGxKCRnKtujRrpS55orAJ4ZoY2Q6Z5fmQdoJuIEvJzTNUYxvGE4csJLZSw0CrUP/P+XQ0vk9T8o0YlAOgUfKEBFbK8OYot0ytKiwBbbdQknQ0nhOZ66EmfxncIXfFNjPkVCaPHBCC1egYMUsvKu6lO4XRM6vpVZWs2g3LJiL0wjlq/U1uyLl2wC6NA0Avt5LrunxcqgNDzVeXtxziQ2n+IPbyC6khravwRabQVLgy+T+Ugy2EIyAtgyhsGgvmJAOLTizdEiBCQqfUthszlM9PFr6JsXJEpIvOPnznsQVwZ3vacLTqC+m8YzjgQ14yY6v+gxqOL7l+2mbQlKGkyYAcwYtzF/ENY5dmQ="
+    - secure: "epYi9/uVG5P/eHF4x2FOZmu2a6pBqVrqXzimbFwDxW2DzoFP/1w3OwE43S2k2cgvpp1vi1Op0Ot/GpvQTnr7dMOHZtGUGGCpdn+e3lu0UfUMtmhfLWJ0N4amluqeafzZL54eHUjYEBblOomz2PwB+vkrmM9AqfdGMC2uYKS9W5qyPUGqUyRsmYLjYYWjpehBz3l/F6bzzCm1M6GKf0S7lOxbRi5MSYz8pX+mD/+pV6HmM46uR3lxEZawIngeMPsvyRfn5KqLjNwKm6flCfQewdMQl2HYOQIqlNUwokp5jNvfFozMlFHf7gPxy6iOU+Hawgz3PAf4kPhClDpHcKXhQ+XnU2e7Eu7ZisYiVDsl5kxJT9/pU5yOxoHE/SorZvSz4xfH+EyovUYg/uIi+AyYJ2CiK0mx87sR1lMX6CUUlq2rcsR+o/1LvSvL2bUh1rq75sTqQ9iu0B5ElYnUMbCVEHbfvKclcp4e0TBrrXOkejJxKYxLGkutK1pULQlICMPMfClWK4SVuED+0qUEKeEeABipDRBghnD9g/9m6x4QWv9K8nJq0SS73CsXjtE170KHL2o0+ZYZ9Dez1Gh+5KgUj4fcbN6HJ6PMgbQHhDlGfOlxQS2oRECPiOJczNQ3IYaOB2hAKcY3q3VYt+Ow92z7UxCYAU5nOx3tOrlQjb1QoQI="
     - DIST_USERNAME="automation@attivio"
 install: true
-script: mvn -B clean install -s .ci/settings.xml -Dmaven.repo.local=$(pwd)/.repository
+script: mvn -B clean install -s $(pwd)/.ci/settings.xml -Dmaven.repo.local=$(pwd)/.repository

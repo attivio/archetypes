@@ -2,8 +2,7 @@ language: java
 git:
   depth: false
 install: true
-script: mvn -B clean install -s $(pwd)/.ci/settings.xml -Dmaven.repo.local=$(pwd)/.repository
-deploy: mvn -B deploy -s $(pwd)/.ci/settings.xml -Dmaven.repo.local=$(pwd)/.repository
+script: mvn -B clean deploy -s $(pwd)/.ci/settings.xml -Dmaven.repo.local=$(pwd)/.repository
 env:
   global:
   - secure: SBJDDXcQH2mQJfP5iBu18XF/V7e1NZJM6RRtbqLOmkFN0sGeqJ3kd90SbyXXEz3jziL8h5CyNguHUzbUyi770VYL2+owVExOXunLY+m7BP4NWfozbpC2hOVZVAp2aSHAE5J5kTdlfrqbhIG1YrbLu7mBdIYce954jVMB12KrK3W8hkHe9/IwEx5qmDB9qZNS7xxj11jrXoDpSJkv0TZBi3rSQmuIzAB7VuXMWo6uuXCPZQI8IQUkqmcMdp7fgXuCVGTXJ3Y39yzITnF6SMdi6uAOuboMfIxFxX5fpXbcQ+nu4D17up2GCsEUlA17FmJnOP17Q86yXvLD6VvHePGHPTliSaM5t8OZiv4PZbpN7S4YtUb6b2DnUtApdkEPvayx/rtxb+6hipXjzSqIewqvPPvfnKDQjoFbpHTXtcnxOSf/D+HhpjRsZox9cH3uRaFY3Qw6OlhYCQ1vunCjxmMeQZp0ZJhCeHT7J4Sdgq6uw9SQcJig+2jhUeADOoi4plHZqVG4LCLcTnTdK5X4dobcnhaAB2mYIvkrJZI7DLjV97Ssd0/LCM80RyJooedrTuYpbeeeSDQ31rTxC+Ejko4N/Erz3NNPnGGxUB/UZ0MNVq+uX7h+ThrggmjBGVGvW3Bct/cgLSOTPBjp/wmJ0fCRRMfN4c86fzFi6rl9p7U+z9Y=

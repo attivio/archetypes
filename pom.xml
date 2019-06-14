@@ -109,13 +109,13 @@
             <maven_repo_releases_enabled>true</maven_repo_releases_enabled>
           </releaseBranchProperties>
           <snapshotDeploymentRepository>
-            <![CDATA[bintray-maven-development::default::${maven.url.base.distRepo}/development/archetypes/;publish=1::true]]>
+            <![CDATA[bintray-maven-development::default::${maven.url.distRepo}/development/archetypes/;publish=1::true]]>
           </snapshotDeploymentRepository>
           <stageDeploymentRepository>
-            <![CDATA[bintray-maven-development::default::${maven.url.base.distRepo}/development/archetypes/;publish=1::true]]>
+            <![CDATA[bintray-maven-development::default::${maven.url.distRepo}/development/archetypes/;publish=1::true]]>
           </stageDeploymentRepository>
           <releaseDeploymentRepository>
-            <![CDATA[bintray-maven-platform::default::${maven.url.base.distRepo}/platform/archetypes/;publish=1::false]]>
+            <![CDATA[bintray-maven-platform::default::${maven.url.distRepo}/platform/archetypes/;publish=1::false]]>
           </releaseDeploymentRepository>
         </configuration>
         <executions>

@@ -10,6 +10,8 @@
   },
   "components": [
     "${groupId}.${artifactId}.SampleFieldValueCreatingTransformer"
-  ]
-  
+  ],
+  "newFiles": {
+    "lib/${artifactId}.jar":"lib/${artifactId}-${project.version}.jar"
+  }
 }

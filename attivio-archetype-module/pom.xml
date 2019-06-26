@@ -14,8 +14,16 @@
     <sample.sources.unpack.dir>${project.build.directory}/sources</sample.sources.unpack.dir>
     <sample.sources.main.unpack.dir>${sample.sources.unpack.dir}/main</sample.sources.main.unpack.dir>
     <sample.sources.test.unpack.dir>${sample.sources.unpack.dir}/test</sample.sources.test.unpack.dir>
-    <sample.sources.resource.dir>${project.build.directory}/classes/archetype-resources/src</sample.sources.resource.dir>
+    <artifactresource.output.dir>${project.build.directory}/classes/archetype-resources/src</artifactresource.output.dir>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.attivio.platform.sdk</groupId>
+      <artifactId>testutils</artifactId>
+      <version>${attivio.version}</version>
+      <classifier>sources</classifier>
+    </dependency>
+  </dependencies>
   <build>
     <resources>
       <resource>
@@ -39,7 +47,7 @@
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
-            <id>unpack-testutil-sample-sources</id>
+            <id>unpack-artifact-resources</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>unpack</goal>
@@ -49,22 +57,10 @@
                 <artifactItem>
                   <groupId>com.attivio.platform.sdk</groupId>
                   <artifactId>testutils</artifactId>
-                  <version>${attivio.version}</version>
                   <classifier>sources</classifier>
                   <overWrite>false</overWrite>
                   <outputDirectory>${sample.sources.main.unpack.dir}</outputDirectory>
                 </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-          <execution>
-            <id>unpack-testutil-sample-test-sources</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
                 <artifactItem>
                   <groupId>com.attivio.platform.sdk</groupId>
                   <artifactId>testutils</artifactId>
@@ -73,6 +69,13 @@
                   <overWrite>false</overWrite>
                   <outputDirectory>${sample.sources.test.unpack.dir}</outputDirectory>
                 </artifactItem>
+                <artifactItem>
+                  <groupId>com.attivio.platform.sdk</groupId>
+                  <artifactId>testutils</artifactId>
+                  <overWrite>false</overWrite>
+                  <includes>**/*.json</includes>
+                  <outputDirectory>${sample.sources.test.unpack.dir}</outputDirectory>
+                  </artifactItem>
               </artifactItems>
             </configuration>
           </execution>
@@ -85,39 +88,35 @@
         </configuration>
         <executions>
           <execution>
-            <id>copy-testutil-sample-main</id>
+            <id>copy-sample-files</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${sample.sources.resource.dir}/main/java</outputDirectory>
               <overwrite>true</overwrite>
+              <outputDirectory>${artifactresource.output.dir}</outputDirectory>
               <resources>
                 <resource>
                   <directory>${sample.sources.main.unpack.dir}/com/sample/module</directory>
                   <includes>
                     <include>*.java</include>
                   </includes>
+                  <targetPath>main/java</targetPath>
                 </resource>
-              </resources>
-            </configuration>
-          </execution>
-          <execution>
-            <id>copy-testutil-sample-test</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${sample.sources.resource.dir}/test/java</outputDirectory>
-              <overwrite>true</overwrite>
-              <resources>
                 <resource>
                   <directory>${sample.sources.test.unpack.dir}/com/sample/module</directory>
                   <includes>
                     <include>*.java</include>
                   </includes>
+                  <targetPath>test/java</targetPath>
+                </resource>
+                <resource>
+                  <directory>${sample.sources.test.unpack.dir}/com/sample/module</directory>
+                  <includes>
+                    <include>*.json</include>
+                  </includes>
+                  <targetPath>test/resources</targetPath>
                 </resource>
               </resources>
             </configuration>

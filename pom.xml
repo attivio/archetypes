@@ -87,7 +87,7 @@
         <plugin>
           <groupId>com.e-gineering</groupId>
           <artifactId>gitflow-helper-maven-plugin</artifactId>
-          <version>2.1.1</version>
+          <version>2.2.0</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -97,25 +97,25 @@
         <artifactId>gitflow-helper-maven-plugin</artifactId>
         <configuration>
           <developmentBranchProperties>
-            <maven_repo_id>bintray-maven-development</maven_repo_id>
+            <maven_repo_id>bintray-attivio-development</maven_repo_id>
             <maven_repo_url>${maven.url.distRepo}/development</maven_repo_url>
             <maven_repo_snapshots_enabled>true</maven_repo_snapshots_enabled>
             <maven_repo_releases_enabled>false</maven_repo_releases_enabled>
           </developmentBranchProperties>
           <releaseBranchProperties>
-            <maven_repo_id>bintray-maven-platform</maven_repo_id>
+            <maven_repo_id>bintray-attivio-platform</maven_repo_id>
             <maven_repo_url>${maven.url.distRepo}/platform</maven_repo_url>
             <maven_repo_snapshots_enabled>false</maven_repo_snapshots_enabled>
             <maven_repo_releases_enabled>true</maven_repo_releases_enabled>
           </releaseBranchProperties>
           <snapshotDeploymentRepository>
-            <![CDATA[bintray-maven-development::default::${maven.url.distRepo}/development/archetypes/;publish=1::true]]>
+            <![CDATA[bintray-attivio-development::default::${maven.url.distRepo}/development/archetypes/;publish=1::true]]>
           </snapshotDeploymentRepository>
           <stageDeploymentRepository>
-            <![CDATA[bintray-maven-development::default::${maven.url.distRepo}/development/archetypes/;publish=1::true]]>
+            <![CDATA[bintray-attivio-development::default::${maven.url.distRepo}/development/archetypes/;publish=1::true]]>
           </stageDeploymentRepository>
           <releaseDeploymentRepository>
-            <![CDATA[bintray-maven-platform::default::${maven.url.distRepo}/platform/archetypes/;publish=1::false]]>
+            <![CDATA[bintray-attivio-platform::default::${maven.url.distRepo}/platform/archetypes/;publish=1::false]]>
           </releaseDeploymentRepository>
         </configuration>
         <executions>

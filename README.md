@@ -23,20 +23,13 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 ### Prepare the Release
 
-#### `develop` branch
+#### New Version
 
-If releasing a new version of the archetypes from
-the `develop` branch:
+If releasing a new version of the archetypes:
 
-1. Create a new branch for this release:
-
-   ```sh
-   git checkout -b <branch>
-   ```
-
-   where `<version>` is in the form `Major.Minor`
-
-2. Drop the `SNAPSHOT` version identifiers:
+1. Checkout the `master` branch.
+2. Merge `develop` into `master` as needed.
+3. Configure the release version in the Maven poms:
 
    ```sh
    mvn versions:set -DremoveSnapshot
@@ -44,13 +37,19 @@ the `develop` branch:
    ```
 
    where `<version>` is the four-field version of the Attivio SDK release with which this archetype release is associated.
+4. Create a release branch for the new version:
 
-3. Continue to the procedure [Performing the Release](#perform-the-release).
+   ```sh
+   git branch release/<version>
+   ```
 
-#### Existing branch
+   where `<version>` is the `Major.Minor` version of the Attivio SDK release with which this archetype release is associated.
 
-If releasing an update to archetypes from
-an existing branch:
+5. Continue to the procedure [Performing the Release](#perform-the-release).
+
+#### Existing Version
+
+If releasing an update to an existing version of the archetypes:
 
 1. Checkout the branch:
 
@@ -61,6 +60,7 @@ an existing branch:
 2. Increment the version:
 
    ```sh
+   mvn versions:set -DnewVersion=<version>
    mvn versions:set-property -Dproperty=attivio.version -DnewVersion=<version>
    ```
 
@@ -70,18 +70,27 @@ an existing branch:
 
 ### Perform the Release
 
-1. Commit, tag, and push to GitHub:
+1. Deploy the release artifacts to Bintray:
 
    ```sh
-   git commit -m "<version> release"
+   mvn deploy [ -s </path/to/settings> ]
+   ```
+
+   where `[ -s </path/to/settings> ]` is an optional argument to Maven specifying a
+   `settings.xml` containing the appropriate credentials for [Bintray](#bintray-setup).
+2. Commit, tag, and push to GitHub:
+
+   ```sh
+   git commit -m "Archetype <version> release"
    git tag -a archetypes-<version>
    git push --tags
    ```
 
+   where `<version>` is the four-field version of the Attivio SDK release with which this archetype release is associated.
+
 ### Post-Release
 
-**Note**: Perform this procedure only if the release was done
-from the `develop` branch.
+**Note**: Perform this procedure only for new versions.
 
 1. Checkout the `develop` branch:
 

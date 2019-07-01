@@ -96,15 +96,21 @@
         <groupId>com.e-gineering</groupId>
         <artifactId>gitflow-helper-maven-plugin</artifactId>
         <configuration>
+          <masterBranchProperties>
+            <maven_repo_id>bintray-attivio-platform</maven_repo_id>
+            <maven_repo_url>${maven.url.repo}/platform</maven_repo_url>
+            <maven_repo_snapshots_enabled>false</maven_repo_snapshots_enabled>
+            <maven_repo_releases_enabled>true</maven_repo_releases_enabled>
+          </masterBranchProperties>
           <developmentBranchProperties>
             <maven_repo_id>bintray-attivio-development</maven_repo_id>
-            <maven_repo_url>${maven.url.distRepo}/development</maven_repo_url>
+            <maven_repo_url>${maven.url.repo}/development</maven_repo_url>
             <maven_repo_snapshots_enabled>true</maven_repo_snapshots_enabled>
             <maven_repo_releases_enabled>false</maven_repo_releases_enabled>
           </developmentBranchProperties>
           <releaseBranchProperties>
             <maven_repo_id>bintray-attivio-platform</maven_repo_id>
-            <maven_repo_url>${maven.url.distRepo}/platform</maven_repo_url>
+            <maven_repo_url>${maven.url.repo}/platform</maven_repo_url>
             <maven_repo_snapshots_enabled>false</maven_repo_snapshots_enabled>
             <maven_repo_releases_enabled>true</maven_repo_releases_enabled>
           </releaseBranchProperties>

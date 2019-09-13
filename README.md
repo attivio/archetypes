@@ -2,6 +2,8 @@
 
 ## Testing
 
+All proposed changes to the archetypes should be done on `develop` or a branch created from `develop`.
+
 To test, you'll want the archetype in a local catalog so that it can be found prior to publishing.  In the archetype directory:
 
 ```sh
@@ -28,22 +30,29 @@ mvn archetype:generate -DarchetypeCatalog=local
 If releasing a new version of the archetypes:
 
 1. Checkout the `master` branch.
-2. Merge `develop` into `master` as needed.
-3. Configure the release version in the Maven poms:
+2. Configure the release version in the Maven poms:
 
    ```sh
-   mvn versions:set -DremoveSnapshot
-   mvn versions:set-property -Dproperty=attivio.version -DnewVersion=<version>
+   mvn -B versions:set -DnewVersion=<version>
+   mvn -B versions:set-property -Dproperty=attivio.version -DnewVersion=<version>
    ```
 
    where `<version>` is the four-field version of the Attivio SDK release with which this archetype release is associated.
+3. Commit the changes locally:
+
+    ```sh
+    git commit -m "Archetype <version> release"
+    git tag -a archetypes-<version>
+    ```
+
+    where `<version>` is the four-field version of the Attivio SDK release with which this archetype release is associated.
 4. Create a release branch for the new version:
 
    ```sh
    git branch release/<version>
    ```
 
-   where `<version>` is the `Major.Minor` version of the Attivio SDK release with which this archetype release is associated.
+   where `<version>` is the `Major.Minor.Point` version of the Attivio Platform release with which this archetype release is associated.
 
 5. Continue to the procedure [Performing the Release](#perform-the-release).
 
@@ -65,8 +74,16 @@ If releasing an update to an existing version of the archetypes:
    ```
 
    where `<version>` is the four-field version of the Attivio SDK release with which this archetype release is associated.
+3. Commit the changes locally:
 
-3. Continue to the procedure [Performing the Release](#perform-the-release).
+    ```sh
+    git commit -m "Archetype <version> release"
+    git tag -a archetypes-<version>
+    ```
+
+    where `<version>` is the four-field version of the Attivio SDK release with which this archetype release is associated.
+
+4. Continue to the procedure [Performing the Release](#perform-the-release).
 
 ### Perform the Release
 
@@ -78,26 +95,17 @@ If releasing an update to an existing version of the archetypes:
 
    where `[ -s </path/to/settings> ]` is an optional argument to Maven specifying a
    `settings.xml` containing the appropriate credentials for [Bintray](#bintray-setup).
-2. Commit, tag, and push to GitHub:
+2. Push to GitHub:
 
    ```sh
-   git commit -m "Archetype <version> release"
-   git tag -a archetypes-<version>
    git push --tags
    ```
-
-   where `<version>` is the four-field version of the Attivio SDK release with which this archetype release is associated.
 
 ### Post-Release
 
 **Note**: Perform this procedure only for new versions.
 
-1. Checkout the `develop` branch:
-
-   ```sh
-   git checkout develop
-   ```
-
+1. Checkout the `develop` branch
 2. Increment the development version:
 
    ```sh

@@ -41,7 +41,7 @@ If releasing a new version of the archetypes:
 3. Commit the changes locally:
 
     ```sh
-    git commit -m "Archetype <version> release"
+    git commit -am "Archetype <version> release"
     git tag -a archetypes-<version>
     ```
 

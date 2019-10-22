@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.attivio.platform</groupId>
   <artifactId>archetypes</artifactId>
-  <version>5.6.2.1-SNAPSHOT</version>
+  <version>5.6.4-SNAPSHOT</version>
   <name>platform/archetypes</name>
   <packaging>pom</packaging>
   <description>Parent POM for Attivio SDK Maven Archetypes</description>
@@ -52,7 +52,7 @@
   </scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <attivio.version>5.6.2.1-SNAPSHOT</attivio.version>
+    <attivio.version>5.6.4-SNAPSHOT</attivio.version>
     <maven.url.repo>https://attivio.bintray.com</maven.url.repo>
     <maven.url.distRepo>https://api.bintray.com/maven/attivio</maven.url.distRepo>
   </properties>
